@@ -150,16 +150,20 @@
          =================================================== -->
     <section class="hero" id="start" aria-label="Willkommen">
 
-      <!-- Video-Hintergrund: Sources werden per JS lazy geladen (nach window.load).
-           Bis dahin ist das hero-poster.jpg aus dem CSS-Background sichtbar.
-           Erster Frame des Videos = hero-poster.jpg → Übergang nahtlos. -->
+      <!-- Video-Hintergrund.
+           preload="none": Browser lädt Video erst wenn play() gerufen wird.
+           play() wird nach window.load aufgerufen → Video lädt zuletzt.
+           Bis dahin: CSS background-image zeigt hero-poster.jpg. -->
       <video
         class="hero__video"
         muted loop playsinline
         poster="assets/img/hero/hero-poster.jpg"
         aria-hidden="true"
         preload="none"
-      ></video>
+      >
+        <source src="assets/video/hero-reel.webm" type="video/webm">
+        <source src="assets/video/hero-reel.mp4"  type="video/mp4">
+      </video>
 
       <!-- Raster-Overlay: horizontale Scan-Linien über dem Video -->
       <div class="hero__raster" aria-hidden="true"></div>
@@ -767,34 +771,23 @@
 
 
     // --- Hero: Lazy Video Load ---
-    // Phase 1 (sofort): CSS background-image zeigt hero-poster.jpg
-    // Phase 2 (nach window.load): Video-Download startet
-    // Phase 3 (canplay): Video blendet ein — erster Frame = poster → nahtlos
+    // preload="none" → Browser lädt Video nicht beim Seitenaufruf.
+    // Nach window.load startet video.play() den Download.
+    // play() gibt eine Promise zurück, die resolved sobald Wiedergabe läuft →
+    // erst dann opacity 0→1. Erster Frame = hero-poster.jpg → nahtloser Übergang.
     window.addEventListener('load', () => {
       const video = document.querySelector('.hero__video');
       if (!video) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      // Event-Listener VOR load() setzen — kein Race Condition möglich
-      const showVideo = () => {
-        video.play().catch(() => {}); // muted video: sollte immer funktionieren
-        video.classList.add('is-loaded'); // CSS: opacity 0 → 1
-      };
-
-      // canplay: feuert sobald erste Frames abspielbereit sind (nicht erst am Ende)
-      video.addEventListener('canplay', showVideo, { once: true });
-
-      // Fallback: falls canplay nie feuert (z.B. Codec-Problem), nach 4s trotzdem versuchen
-      setTimeout(() => {
-        if (!video.classList.contains('is-loaded')) showVideo();
-      }, 4000);
-
-      // Format wählen und direkt per src setzen (zuverlässiger als <source>-Elemente)
-      const supportsWebM = video.canPlayType('video/webm; codecs=vp9') !== '';
-      video.src = supportsWebM
-        ? 'assets/video/hero-reel.webm'
-        : 'assets/video/hero-reel.mp4';
-      video.load();
+      video.play()
+        .then(() => {
+          video.classList.add('is-loaded'); // CSS transition: opacity 0 → 1
+        })
+        .catch(() => {
+          // play() geblockt (z.B. strenge Autoplay-Policy) → trotzdem anzeigen
+          video.classList.add('is-loaded');
+        });
     });
 
 
