@@ -615,7 +615,7 @@
 
       <div class="footer__bottom">
         <small>© 2025 Regenzeit · Benno &amp; Aey Bartels · Hessestraße 4, 90443 Nürnberg</small>
-        <small class="build-version">v2026-03-21 20:40 · <a href="assets/video/hero-reel.mp4" style="color:inherit;opacity:0.5">▶ video</a></small>
+        <small class="build-version">v2026-03-21 20:55 · <a href="assets/video/hero-reel.mp4" style="color:inherit;opacity:0.5">▶ video</a></small>
         <nav class="footer__legal" aria-label="Rechtliches">
           <a href="#" onclick="document.getElementById('dialog-impressum').showModal(); return false;">
             Impressum
@@ -779,9 +779,12 @@
     });
 
 
-    // Hero-Video: kein JS nötig.
-    // autoplay+muted+playsinline übernimmt alles.
-    // CSS background-image zeigt hero-poster.jpg bis Video läuft.
+    // Hero-Video: autoplay ist ein Hint — iOS ignoriert ihn manchmal.
+    // Expliziter play()-Aufruf hat höhere Priorität.
+    (function () {
+      var vid = document.querySelector('.hero__video');
+      if (vid) vid.play().catch(function () {});
+    }());
 
 
     // --- Google Maps Click-to-Load (DSGVO) ---
