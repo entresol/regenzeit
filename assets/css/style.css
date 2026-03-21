@@ -107,8 +107,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
-  /* Video + Animationen deaktivieren — Poster-Bild bleibt sichtbar */
-  .hero__video        { display: none !important; }
+  /* Animationen deaktivieren — hero-poster.jpg bleibt als Hintergrund sichtbar */
   .hero__steam        { display: none !important; }
   .review-ticker__inner { animation: none !important; }
   /* Rotationen zurücksetzen */
