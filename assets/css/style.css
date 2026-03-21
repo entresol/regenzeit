@@ -105,7 +105,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
-  .hero__video, .hero__steam, .review-ticker__inner { display: none !important; }
+  /* Video + Animationen deaktivieren — Poster-Bild bleibt sichtbar */
+  .hero__video        { display: none !important; }
+  .hero__steam        { display: none !important; }
+  .review-ticker__inner { animation: none !important; }
 }
 
 /* === TYPOGRAFIE ============================================ */

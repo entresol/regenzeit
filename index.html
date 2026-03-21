@@ -151,15 +151,14 @@
     <section class="hero" id="start" aria-label="Willkommen">
 
       <!-- Video-Hintergrund.
-           preload="none": Browser lädt Video erst wenn play() gerufen wird.
-           play() wird nach window.load aufgerufen → Video lädt zuletzt.
-           Bis dahin: CSS background-image zeigt hero-poster.jpg. -->
+           autoplay+muted: Standard-Kombination für stumme Hintergrund-Videos,
+           funktioniert in allen modernen Browsern ohne JS.
+           CSS background-image zeigt hero-poster.jpg bis Video abspielbereit. -->
       <video
         class="hero__video"
-        muted loop playsinline
+        autoplay muted loop playsinline
         poster="assets/img/hero/hero-poster.jpg"
         aria-hidden="true"
-        preload="none"
       >
         <source src="assets/video/hero-reel.webm" type="video/webm">
         <source src="assets/video/hero-reel.mp4"  type="video/mp4">
@@ -770,25 +769,17 @@
     });
 
 
-    // --- Hero: Lazy Video Load ---
-    // preload="none" → Browser lädt Video nicht beim Seitenaufruf.
-    // Nach window.load startet video.play() den Download.
-    // play() gibt eine Promise zurück, die resolved sobald Wiedergabe läuft →
-    // erst dann opacity 0→1. Erster Frame = hero-poster.jpg → nahtloser Übergang.
-    window.addEventListener('load', () => {
+    // --- Hero-Video: Fade-in sobald abspielbereit ---
+    // autoplay+muted übernimmt das Starten — kein play() nötig.
+    // canplay feuert wenn erste Frames bereit sind → is-loaded → opacity 1.
+    // prefers-reduced-motion wird via CSS gehandelt (video { display:none }).
+    (function () {
       const video = document.querySelector('.hero__video');
       if (!video) return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      video.play()
-        .then(() => {
-          video.classList.add('is-loaded'); // CSS transition: opacity 0 → 1
-        })
-        .catch(() => {
-          // play() geblockt (z.B. strenge Autoplay-Policy) → trotzdem anzeigen
-          video.classList.add('is-loaded');
-        });
-    });
+      video.addEventListener('canplay', function () {
+        video.classList.add('is-loaded');
+      }, { once: true });
+    }());
 
 
     // --- Google Maps Click-to-Load (DSGVO) ---
