@@ -313,7 +313,7 @@ p { max-width: 65ch; }
   background-position: center;
 }
 
-/* Video-Hintergrund — startet unsichtbar, blendet ein wenn geladen */
+/* Video-Hintergrund */
 .hero__video {
   position: absolute;
   inset: 0;
@@ -321,11 +321,8 @@ p { max-width: 65ch; }
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease;
+  opacity: 1;
 }
-/* JS fügt .is-loaded hinzu sobald canplaythrough feuert */
-.hero__video.is-loaded { opacity: 1; }
 
 /* Raster-Effekt: horizontale Scan-Linien über dem Video */
 .hero__raster {

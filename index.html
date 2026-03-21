@@ -769,17 +769,9 @@
     });
 
 
-    // --- Hero-Video: Fade-in sobald abspielbereit ---
-    // autoplay+muted übernimmt das Starten — kein play() nötig.
-    // canplay feuert wenn erste Frames bereit sind → is-loaded → opacity 1.
-    // prefers-reduced-motion wird via CSS gehandelt (video { display:none }).
-    (function () {
-      const video = document.querySelector('.hero__video');
-      if (!video) return;
-      video.addEventListener('canplay', function () {
-        video.classList.add('is-loaded');
-      }, { once: true });
-    }());
+    // Hero-Video: kein JS nötig.
+    // autoplay+muted+playsinline übernimmt alles.
+    // CSS background-image zeigt hero-poster.jpg bis Video läuft.
 
 
     // --- Google Maps Click-to-Load (DSGVO) ---
