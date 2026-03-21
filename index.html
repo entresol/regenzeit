@@ -208,11 +208,33 @@
       <span class="hero__scroll" aria-hidden="true">Entdecken</span>
     </section>
 
+    <!-- ===================================================
+         REVIEW-TICKER
+         =================================================== -->
+    <section class="review-ticker" aria-label="Was Gäste sagen">
+      <div class="review-ticker__track">
+        <div class="review-ticker__inner" aria-hidden="true">
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Da riecht es wie in Thailand." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Nudelsuppen, die man nicht vergisst." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Ohne Schnickschnack — ehrlich, authentisch, lecker." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Als wärst du mitten in Bangkok." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Mein absolutes Lieblingsrestaurant in Nürnberg." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Geht zur Regenzeit. Einfach hingehen." &nbsp;·&nbsp;</span>
+          <!-- Inhalt doppelt für nahtlosen Loop -->
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Da riecht es wie in Thailand." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Nudelsuppen, die man nicht vergisst." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Ohne Schnickschnack — ehrlich, authentisch, lecker." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Als wärst du mitten in Bangkok." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Mein absolutes Lieblingsrestaurant in Nürnberg." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Geht zur Regenzeit. Einfach hingehen." &nbsp;·&nbsp;</span>
+        </div>
+      </div>
+    </section>
 
     <!-- ===================================================
          ÜBER UNS
          =================================================== -->
-    <section class="section about section--parallax" id="about" aria-labelledby="about-heading">
+    <section class="section about" id="about" aria-labelledby="about-heading">
       <div class="container">
         <div class="about__grid">
 
@@ -279,7 +301,7 @@
     <!-- ===================================================
          SPEISEKARTE (Highlights)
          =================================================== -->
-    <section class="section menu section--parallax" id="menu" aria-labelledby="menu-heading">
+    <section class="section menu" id="menu" aria-labelledby="menu-heading">
       <div class="container">
 
         <header class="section-header">
@@ -402,30 +424,6 @@
           Alle Gerichte auf Wunsch auch vegetarisch oder vegan.
         </p>
 
-      </div>
-    </section>
-
-
-    <!-- ===================================================
-         REVIEW-TICKER
-         =================================================== -->
-    <section class="review-ticker" aria-label="Was Gäste sagen">
-      <div class="review-ticker__track">
-        <div class="review-ticker__inner" aria-hidden="true">
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Da riecht es wie in Thailand." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Nudelsuppen, die man nicht vergisst." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Ohne Schnickschnack — ehrlich, authentisch, lecker." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Als wärst du mitten in Bangkok." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Mein absolutes Lieblingsrestaurant in Nürnberg." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Geht zur Regenzeit. Einfach hingehen." &nbsp;·&nbsp;</span>
-          <!-- Inhalt doppelt für nahtlosen Loop -->
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Da riecht es wie in Thailand." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Nudelsuppen, die man nicht vergisst." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Ohne Schnickschnack — ehrlich, authentisch, lecker." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Als wärst du mitten in Bangkok." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Mein absolutes Lieblingsrestaurant in Nürnberg." &nbsp;·&nbsp;</span>
-          <span>⭐⭐⭐⭐⭐ &nbsp;"Geht zur Regenzeit. Einfach hingehen." &nbsp;·&nbsp;</span>
-        </div>
       </div>
     </section>
 
@@ -778,10 +776,10 @@
     });
 
 
-    // Hero-Video: autoplay ist ein Hint — expliziter play()-Aufruf nötig für iOS.
+    // Hero-Video: play() nur wenn pausiert — sonst Restart-Bug auf iOS Safari.
     (function () {
       var vid = document.querySelector('.hero__video');
-      if (vid) vid.play().catch(function () {});
+      if (vid && vid.paused) vid.play().catch(function () {});
     }());
 
 
