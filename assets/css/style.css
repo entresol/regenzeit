@@ -938,6 +938,7 @@ p { max-width: 65ch; }
   font-size: 0.78rem;
 }
 .footer__legal { display: flex; gap: var(--space-sm); flex-wrap: wrap; align-items: center; }
+.build-version { color: rgba(168, 144, 112, 0.35); font-size: 0.65rem; font-family: monospace; }
 .footer__legal a {
   color: rgba(168, 144, 112, 0.5);
   text-decoration: underline;
