@@ -303,10 +303,14 @@ p { max-width: 65ch; }
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  background: linear-gradient(135deg, #1A1208 0%, #261C0E 100%);
+  /* Sofort sichtbar beim ersten Laden — identisch mit erstem Video-Frame */
+  background-color: #1A1208;
+  background-image: url('../img/hero/hero-poster.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-/* Video-Hintergrund */
+/* Video-Hintergrund — startet unsichtbar, blendet ein wenn geladen */
 .hero__video {
   position: absolute;
   inset: 0;
@@ -314,26 +318,45 @@ p { max-width: 65ch; }
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+/* JS fügt .is-loaded hinzu sobald canplaythrough feuert */
+.hero__video.is-loaded { opacity: 1; }
+
+/* Raster-Effekt: horizontale Scan-Linien über dem Video */
+.hero__raster {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.52) 3px,
+    rgba(0, 0, 0, 0.52) 4px
+  );
 }
 
-/* Dunkler Gradient-Overlay über Video/Foto */
+/* Dunkler Gradient-Overlay über Raster */
 .hero__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(26, 18, 8, 0.35) 0%,
-    rgba(26, 18, 8, 0.65) 55%,
-    rgba(26, 18, 8, 0.95) 100%
+    rgba(26, 18, 8, 0.30) 0%,
+    rgba(26, 18, 8, 0.58) 55%,
+    rgba(26, 18, 8, 0.94) 100%
   );
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Steam-Animation (CSS-only, kein JS) */
 .hero__steam {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
 }
 
@@ -360,7 +383,7 @@ p { max-width: 65ch; }
 /* Hero-Inhalt */
 .hero__content {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   padding-inline: var(--space-md);
   max-width: 860px;
   display: flex;
@@ -422,7 +445,7 @@ p { max-width: 65ch; }
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  z-index: 3;
+  z-index: 4;
 }
 .hero__scroll::after {
   content: '';

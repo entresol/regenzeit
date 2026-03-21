@@ -150,17 +150,19 @@
          =================================================== -->
     <section class="hero" id="start" aria-label="Willkommen">
 
-      <!-- Video-Hintergrund (Datei kommt nach Produktion des Bangkok-Reels) -->
-      <!-- TODO: assets/video/bangkok-reel.webm + .mp4 einbauen wenn produziert -->
+      <!-- Video-Hintergrund: Sources werden per JS lazy geladen (nach window.load).
+           Bis dahin ist das hero-poster.jpg aus dem CSS-Background sichtbar.
+           Erster Frame des Videos = hero-poster.jpg → Übergang nahtlos. -->
       <video
         class="hero__video"
-        autoplay muted loop playsinline
+        muted loop playsinline
         poster="assets/img/hero/hero-poster.jpg"
         aria-hidden="true"
-      >
-        <!-- <source src="assets/video/bangkok-reel.webm" type="video/webm"> -->
-        <!-- <source src="assets/video/bangkok-reel.mp4" type="video/mp4"> -->
-      </video>
+        preload="none"
+      ></video>
+
+      <!-- Raster-Overlay: horizontale Scan-Linien über dem Video -->
+      <div class="hero__raster" aria-hidden="true"></div>
 
       <div class="hero__overlay" aria-hidden="true"></div>
 
@@ -761,6 +763,37 @@
         navToggle.setAttribute('aria-expanded', 'false');
         siteNav.classList.remove('is-open');
       });
+    });
+
+
+    // --- Hero: Lazy Video Load ---
+    // Seite zeigt sofort hero-poster.jpg (CSS-Background).
+    // Nach vollständigem Seitenload beginnt der Browser erst mit dem Video-Download.
+    // Sobald canplaythrough feuert, blendet das Video über das Standbild ein.
+    // Da erster Frame = hero-poster.jpg, ist der Übergang unsichtbar.
+    window.addEventListener('load', () => {
+      const video = document.querySelector('.hero__video');
+      if (!video) return;
+
+      // prefers-reduced-motion: kein Video abspielen
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      // Sources jetzt setzen → Browser beginnt zu laden
+      const webm = document.createElement('source');
+      webm.src  = 'assets/video/hero-reel.webm';
+      webm.type = 'video/webm';
+      const mp4 = document.createElement('source');
+      mp4.src   = 'assets/video/hero-reel.mp4';
+      mp4.type  = 'video/mp4';
+      video.appendChild(webm);
+      video.appendChild(mp4);
+      video.load();
+
+      // Einblenden sobald Video abspielbereit ist
+      video.addEventListener('canplaythrough', () => {
+        video.play().catch(() => {}); // Autoplay-Policy: Fehler still ignorieren
+        video.classList.add('is-loaded'); // triggert opacity: 1 via CSS transition
+      }, { once: true });
     });
 
 

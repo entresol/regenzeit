@@ -10,6 +10,12 @@ Bildschirmfoto*.png
 Bildschirmfoto*.jpeg
 regenzeit-new-logo.png
 
+# Supporting files: große Quell-Binärdateien
+supporting files/*.mp4
+supporting files/*.png
+supporting files/*.jpeg
+supporting files/*.jpg
+
 # Editoren
 .vscode/
 *.swp
