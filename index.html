@@ -615,7 +615,7 @@
 
       <div class="footer__bottom">
         <small>© 2025 Regenzeit · Benno &amp; Aey Bartels · Hessestraße 4, 90443 Nürnberg</small>
-        <small class="build-version" id="build-version">v2026-03-21 21:10 · <a href="assets/video/hero-reel.mp4" style="color:inherit;opacity:0.5">▶ video</a></small>
+        <small class="build-version">v2026-03-21 21:25</small>
         <nav class="footer__legal" aria-label="Rechtliches">
           <a href="#" onclick="document.getElementById('dialog-impressum').showModal(); return false;">
             Impressum
@@ -779,24 +779,10 @@
     });
 
 
-    // Hero-Video + Diagnose
+    // Hero-Video: autoplay ist ein Hint — expliziter play()-Aufruf nötig für iOS.
     (function () {
       var vid = document.querySelector('.hero__video');
-      var out = document.getElementById('build-version');
-      if (!vid) { if (out) out.textContent += ' · vid:null'; return; }
-      var result = vid.play();
-      if (result && result.then) {
-        result.then(function () {
-          if (out) out.textContent += ' · play:ok';
-        }).catch(function (e) {
-          if (out) out.textContent += ' · play:err(' + e.name + ')';
-        });
-      } else {
-        if (out) out.textContent += ' · play:sync';
-      }
-      setTimeout(function () {
-        if (out) out.textContent += ' · paused:' + vid.paused + ' readyState:' + vid.readyState;
-      }, 2000);
+      if (vid) vid.play().catch(function () {});
     }());
 
 
