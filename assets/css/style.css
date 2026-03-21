@@ -56,8 +56,7 @@ body::after {
   background-size: 200px 200px;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.035;
-  mix-blend-mode: overlay;
+  opacity: 0.04;
 }
 
 /* === RESET ================================================== */
