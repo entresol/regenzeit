@@ -17,11 +17,10 @@
   <meta property="og:description" content="Authentisches Thai-Streetfood in Nürnberg-Gostenhof. Nudelsuppen, Reissalate und Currys wie in Bangkok.">
   <meta property="og:url" content="https://entresol.github.io/regenzeit/">
   <meta property="og:locale" content="de_DE">
-  <!-- TODO: og:image ergänzen sobald Hero-Foto vorhanden
-  <meta property="og:image" content="https://entresol.github.io/regenzeit/assets/img/hero/hero.jpg">
+  <meta property="og:image" content="https://entresol.github.io/regenzeit/assets/img/hero/hero-poster.jpg">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  -->
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="Regenzeit Nürnberg — Gastraum mit Glasdach und Pflanzen">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -29,8 +28,8 @@
   <meta name="twitter:description" content="Authentisches Thai-Streetfood in Nürnberg-Gostenhof.">
 
   <!-- Theme / PWA -->
-  <meta name="theme-color" content="#8B1A1A">
-  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FF8C00">
+  <meta name="color-scheme" content="dark">
 
   <!-- === SCHEMA.ORG JSON-LD ============================== -->
   <script type="application/ld+json">
@@ -97,8 +96,9 @@
   </script>
 
   <!-- === SCHRIFTEN (Bunny Fonts — EU-Server, DSGVO-konform) -->
+  <!-- Bebas Neue: Headlines / Noto Serif Thai: Dish-Namen / Inter: Fließtext -->
   <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=playfair-display:400,400i,700|inter:400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.bunny.net/css2?family=Bebas+Neue&family=Noto+Serif+Thai:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- === STYLES ========================================== -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -111,7 +111,10 @@
        ===================================================== -->
   <header class="site-header">
     <div class="site-header__inner">
-      <a href="#" class="site-logo" aria-label="Regenzeit — zur Startseite">Regenzeit</a>
+      <a href="#" class="site-logo" aria-label="Regenzeit — zur Startseite">
+        <img src="assets/img/logo/regenzeit-logo.png" alt="" class="site-logo__img" width="40" height="40" aria-hidden="true">
+        <span class="site-logo__text">Regenzeit</span>
+      </a>
 
       <button
         class="nav-toggle"
@@ -147,17 +150,44 @@
          =================================================== -->
     <section class="hero" id="start" aria-label="Willkommen">
 
-      <!-- TODO: Hintergrundbild ergänzen sobald von Benno/Aey geliefert.
-           Dann in style.css .hero { background-image: ... } auskommentieren entfernen.
-           Empfohlen: JPG/WebP, mind. 1920×1080px, warme Lichtsituation -->
+      <!-- Video-Hintergrund (Datei kommt nach Produktion des Bangkok-Reels) -->
+      <!-- TODO: assets/video/bangkok-reel.webm + .mp4 einbauen wenn produziert -->
+      <video
+        class="hero__video"
+        autoplay muted loop playsinline
+        poster="assets/img/hero/hero-poster.jpg"
+        aria-hidden="true"
+      >
+        <!-- <source src="assets/video/bangkok-reel.webm" type="video/webm"> -->
+        <!-- <source src="assets/video/bangkok-reel.mp4" type="video/mp4"> -->
+      </video>
+
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <!-- Steam-Animation (CSS-only) -->
+      <div class="hero__steam" aria-hidden="true">
+        <span class="steam steam--1"></span>
+        <span class="steam steam--2"></span>
+        <span class="steam steam--3"></span>
+      </div>
 
       <div class="hero__content">
-        <span class="hero__eyebrow">Nürnberg · Gostenhof · seit 2014</span>
+        <!-- h1 für SEO/Accessibility, visuell ausgeblendet -->
+        <h1 class="sr-only">Regenzeit — Thai-Streetfood in Nürnberg-Gostenhof</h1>
 
-        <h1 class="hero__title">Regenzeit</h1>
+        <img
+          src="assets/img/logo/regenzeit-logo.png"
+          alt="Regenzeit"
+          class="hero__logo"
+          width="200"
+          height="200"
+        >
 
-        <p class="hero__subtitle">
-          Thai-Streetfood wie in Bangkok.<br>Mitten in Gostenhof.
+        <p class="hero__slogan">When it rains, it smells like Bangkok.</p>
+
+        <p class="hero__tagline">
+          Thai-Nudelsuppen, die man nicht vergisst.<br>
+          Hessestraße 4, Gostenhof.
         </p>
 
         <div class="hero__actions">
@@ -178,7 +208,7 @@
     <!-- ===================================================
          ÜBER UNS
          =================================================== -->
-    <section class="section about" id="about" aria-labelledby="about-heading">
+    <section class="section about section--parallax" id="about" aria-labelledby="about-heading">
       <div class="container">
         <div class="about__grid">
 
@@ -207,26 +237,34 @@
             </div>
           </div>
 
-          <div class="about__visual" aria-label="Bilder aus dem Restaurant" role="img">
-            <!-- TODO: Echte Fotos von Benno/Aey einsetzen.
-                 Empfehlung:
-                 - 1 Foto Innenraum / Atmosphäre (quer, 16:9)
-                 - 1 Foto Detail (Hände, Gewürze, etc.)
-                 - 1 Foto Außenansicht oder Team
-                 Format: <img src="assets/img/..." alt="..." width="..." height="..." loading="lazy">
-            -->
-            <div class="about__img-placeholder" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-              <span>Atmosphäre-Foto<br>(von Benno/Aey)</span>
-            </div>
-            <div class="about__img-placeholder" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-              <span>Detail-Foto</span>
-            </div>
-            <div class="about__img-placeholder" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-              <span>Außen-Foto</span>
-            </div>
+          <div class="about__visual">
+            <picture class="about__img about__img--main">
+              <source srcset="assets/img/interior-1.webp" type="image/webp">
+              <img
+                src="assets/img/interior-1.jpg"
+                alt="Gastraum der Regenzeit: Glasdach, Pflanzen, bunte Sessel"
+                width="800" height="450"
+                loading="eager"
+              >
+            </picture>
+            <picture class="about__img">
+              <source srcset="assets/img/interior-2.webp" type="image/webp">
+              <img
+                src="assets/img/interior-2.jpg"
+                alt="Gemütliche Sitzecke mit bunten Kissen und Rattansofa"
+                width="400" height="533"
+                loading="lazy"
+              >
+            </picture>
+            <picture class="about__img">
+              <source srcset="assets/img/interior-3.webp" type="image/webp">
+              <img
+                src="assets/img/interior-3.jpg"
+                alt="Das handgemalte Frosch-Logo der Regenzeit über dem Klavier"
+                width="400" height="533"
+                loading="lazy"
+              >
+            </picture>
           </div>
 
         </div>
@@ -237,7 +275,7 @@
     <!-- ===================================================
          SPEISEKARTE (Highlights)
          =================================================== -->
-    <section class="section menu" id="menu" aria-labelledby="menu-heading">
+    <section class="section menu section--parallax" id="menu" aria-labelledby="menu-heading">
       <div class="container">
 
         <header class="section-header">
@@ -249,79 +287,101 @@
         <div class="menu__grid">
 
           <article class="menu-card">
-            <span class="menu-card__category">Suppe</span>
-            <h3 class="menu-card__name">Tom Yam</h3>
-            <p class="menu-card__desc">
-              Glasnudeln, Fisch, Muscheln, Garnelen, Surimi und Pilze
-              in einer aromatischen Brühe. Sauer, scharf, unverwechselbar.
-            </p>
-            <div class="menu-card__footer">
-              <span class="menu-card__price">12,00 €</span>
-              <div class="menu-card__tags">
-                <span class="tag tag-fish">Fisch &amp; Meeresfrüchte</span>
+            <picture class="menu-card__img">
+              <source srcset="assets/img/food/dish-tom-yam.webp" type="image/webp">
+              <img src="assets/img/food/dish-tom-yam.jpg"
+                   alt="Tom Yam — Garnelen, Muscheln und Kräuter in aromatischer Brühe"
+                   width="600" height="400" loading="lazy">
+            </picture>
+            <div class="menu-card__body">
+              <span class="menu-card__category">Suppe</span>
+              <h3 class="menu-card__name">Tom Yam</h3>
+              <p class="menu-card__desc">
+                Glasnudeln, Fisch, Muscheln, Garnelen, Surimi und Pilze
+                in einer aromatischen Brühe. Sauer, scharf, unverwechselbar.
+              </p>
+              <div class="menu-card__footer">
+                <span class="menu-card__price">12,00 €</span>
+                <div class="menu-card__tags">
+                  <span class="tag tag-fish">Meeresfrüchte</span>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="menu-card">
-            <span class="menu-card__category">Salat &amp; Gemüse</span>
-            <h3 class="menu-card__name">Lek Haeng</h3>
-            <p class="menu-card__desc">
-              Warmes Gemüse, frische Kräuter, selbstgeröstete Erdnüsse.
-              Die Seele der Regenzeit — in veganer, vegetarischer
-              oder Fleisch-Variante.
-            </p>
-            <div class="menu-card__footer">
-              <span class="menu-card__price">ab 9,00 €</span>
-              <div class="menu-card__tags">
-                <span class="tag tag-vegan">vegan möglich</span>
+            <div class="menu-card__body">
+              <span class="menu-card__category">Salat &amp; Gemüse</span>
+              <h3 class="menu-card__name">Lek Haeng</h3>
+              <p class="menu-card__desc">
+                Warmes Gemüse, frische Kräuter, selbstgeröstete Erdnüsse.
+                Die Seele der Regenzeit — in veganer, vegetarischer
+                oder Fleisch-Variante.
+              </p>
+              <div class="menu-card__footer">
+                <span class="menu-card__price">ab 9,00 €</span>
+                <div class="menu-card__tags">
+                  <span class="tag tag-vegan">vegan möglich</span>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="menu-card">
-            <span class="menu-card__category">Nudeln</span>
-            <h3 class="menu-card__name">Curry Nudeln</h3>
-            <p class="menu-card__desc">
-              Kokosmilchsauce, Erdnüsse, Röstzwiebeln, Gemüse und Kräuter.
-              Reichhaltig, duftend, komfortabel. Vegan oder mit Huhn.
-            </p>
-            <div class="menu-card__footer">
-              <span class="menu-card__price">ab 9,50 €</span>
-              <div class="menu-card__tags">
-                <span class="tag tag-vegan">vegan möglich</span>
+            <div class="menu-card__body">
+              <span class="menu-card__category">Nudeln</span>
+              <h3 class="menu-card__name">Curry Nudeln</h3>
+              <p class="menu-card__desc">
+                Kokosmilchsauce, Erdnüsse, Röstzwiebeln, Gemüse und Kräuter.
+                Reichhaltig, duftend, komfortabel. Vegan oder mit Huhn.
+              </p>
+              <div class="menu-card__footer">
+                <span class="menu-card__price">ab 9,50 €</span>
+                <div class="menu-card__tags">
+                  <span class="tag tag-vegan">vegan möglich</span>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="menu-card">
-            <span class="menu-card__category">Rein Pflanzlich</span>
-            <h3 class="menu-card__name">Gemüse &amp; Tofu</h3>
-            <p class="menu-card__desc">
-              Saisonales Gemüse, Tofu, Pilze, geröstete Erdnüsse.
-              Vollständig vegan — und trotzdem geschmacklich vollständig.
-            </p>
-            <div class="menu-card__footer">
-              <span class="menu-card__price">7,00 €</span>
-              <div class="menu-card__tags">
-                <span class="tag tag-vegan">vegan</span>
-                <span class="tag tag-veggie">vegetarisch</span>
+            <div class="menu-card__body">
+              <span class="menu-card__category">Rein Pflanzlich</span>
+              <h3 class="menu-card__name">Gemüse &amp; Tofu</h3>
+              <p class="menu-card__desc">
+                Saisonales Gemüse, Tofu, Pilze, geröstete Erdnüsse.
+                Vollständig vegan — und trotzdem geschmacklich vollständig.
+              </p>
+              <div class="menu-card__footer">
+                <span class="menu-card__price">7,00 €</span>
+                <div class="menu-card__tags">
+                  <span class="tag tag-vegan">vegan</span>
+                  <span class="tag tag-veggie">vegetarisch</span>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="menu-card">
-            <span class="menu-card__category">Dessert</span>
-            <h3 class="menu-card__name">Klebreis mit Mango</h3>
-            <p class="menu-card__desc">
-              Süßer Klebreis mit frischer Mango und Kokosmilch.
-              Der klassische Abschluss eines Thai-Mahls.
-            </p>
-            <div class="menu-card__footer">
-              <span class="menu-card__price">auf Anfrage</span>
-              <div class="menu-card__tags">
-                <span class="tag tag-dessert">Dessert</span>
-                <span class="tag tag-vegan">vegan</span>
+            <picture class="menu-card__img">
+              <source srcset="assets/img/food/dish-dessert.webp" type="image/webp">
+              <img src="assets/img/food/dish-dessert.jpg"
+                   alt="Klebreis mit Mango und Granatapfel — das Thai-Dessert der Regenzeit"
+                   width="600" height="400" loading="lazy">
+            </picture>
+            <div class="menu-card__body">
+              <span class="menu-card__category">Dessert</span>
+              <h3 class="menu-card__name">Klebreis mit Mango</h3>
+              <p class="menu-card__desc">
+                Schwarzer Klebreis mit frischer Mango, Granatapfelkernen
+                und Kokosmilch. Der klassische Abschluss eines Thai-Mahls.
+              </p>
+              <div class="menu-card__footer">
+                <span class="menu-card__price">auf Anfrage</span>
+                <div class="menu-card__tags">
+                  <span class="tag tag-dessert">Dessert</span>
+                  <span class="tag tag-vegan">vegan</span>
+                </div>
               </div>
             </div>
           </article>
@@ -343,6 +403,30 @@
 
 
     <!-- ===================================================
+         REVIEW-TICKER
+         =================================================== -->
+    <section class="review-ticker" aria-label="Was Gäste sagen">
+      <div class="review-ticker__track">
+        <div class="review-ticker__inner" aria-hidden="true">
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Da riecht es wie in Thailand." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Nudelsuppen, die man nicht vergisst." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Ohne Schnickschnack — ehrlich, authentisch, lecker." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Als wärst du mitten in Bangkok." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Mein absolutes Lieblingsrestaurant in Nürnberg." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Geht zur Regenzeit. Einfach hingehen." &nbsp;·&nbsp;</span>
+          <!-- Inhalt doppelt für nahtlosen Loop -->
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Da riecht es wie in Thailand." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Nudelsuppen, die man nicht vergisst." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Ohne Schnickschnack — ehrlich, authentisch, lecker." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Als wärst du mitten in Bangkok." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Mein absolutes Lieblingsrestaurant in Nürnberg." &nbsp;·&nbsp;</span>
+          <span>⭐⭐⭐⭐⭐ &nbsp;"Geht zur Regenzeit. Einfach hingehen." &nbsp;·&nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
          BESUCH PLANEN
          =================================================== -->
     <section class="section visit" id="visit" aria-labelledby="visit-heading">
@@ -353,25 +437,24 @@
           <div class="visit__info">
             <h2 id="visit-heading">Besuch planen</h2>
 
-            <!-- TODO: Öffnungszeiten mit Benno/Aey verifizieren (Google Maps kann abweichen) -->
             <table class="hours-table" aria-label="Öffnungszeiten">
               <caption class="sr-only">Öffnungszeiten der Regenzeit</caption>
               <tbody>
                 <tr>
-                  <td>Dienstag – Samstag</td>
-                  <td>11:30–14:30 &amp; 17:00–22:00 Uhr</td>
+                  <td>Di – Sa · Mittagstisch</td>
+                  <td>11:30–14:30 Uhr</td>
                 </tr>
                 <tr>
-                  <td>Sonntag</td>
-                  <td>Geschlossen</td>
+                  <td>Di – Sa · Abend</td>
+                  <td>17:00–22:00 Uhr<br><small style="color:var(--color-text-muted);font-size:0.78rem">(Küche bis 20:45)</small></td>
                 </tr>
                 <tr>
-                  <td>Montag</td>
+                  <td>Sonntag &amp; Montag</td>
                   <td>Geschlossen</td>
                 </tr>
               </tbody>
             </table>
-            <p class="hours-note">Aktuelle Änderungen auf Instagram.</p>
+            <p class="hours-note">Aktuelle Änderungen auf <a href="https://www.instagram.com/regenzeit.goho/" target="_blank" rel="noopener noreferrer" style="color:var(--color-neon)">Instagram</a>.</p>
 
             <div class="contact-block">
               <h3>Kontakt &amp; Anfahrt</h3>
@@ -450,7 +533,10 @@
       <div class="footer__main">
 
         <div class="footer__brand">
-          <a href="#start" class="site-logo">Regenzeit</a>
+          <a href="#start" class="site-logo" aria-label="Regenzeit — nach oben">
+            <img src="assets/img/logo/regenzeit-logo.png" alt="" class="site-logo__img" width="40" height="40" aria-hidden="true">
+            <span class="site-logo__text">Regenzeit</span>
+          </a>
           <p>
             Thai-Streetfood aus Bangkok — serviert mit Herz
             in Nürnberg-Gostenhof seit 2014.
@@ -521,6 +607,9 @@
           </a>
           <a href="#" onclick="document.getElementById('dialog-datenschutz').showModal(); return false;">
             Datenschutz
+          </a>
+          <a href="llms.txt" class="ai-badge" title="Diese Seite ist für KI-Assistenten optimiert">
+            🤖 AI-ready
           </a>
         </nav>
       </div>

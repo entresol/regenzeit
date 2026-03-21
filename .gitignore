@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Quelldateien / Rohmaterial (nicht ins Repo)
+IMG_*.jpeg
+Groß*.jpeg
+Bildschirmfoto*.png
+Bildschirmfoto*.jpeg
+regenzeit-new-logo.png
+
+# Editoren
+.vscode/
+*.swp
