@@ -723,11 +723,23 @@ p { max-width: 65ch; }
 .menu__disclaimer a:hover { color: var(--color-warm); }
 
 /* === REVIEW TICKER ======================================== */
+/* Ruhige Trennbereiche zwischen Sektionen — Desktop only */
+.section-sep {
+  display: none;
+}
+@media (min-width: 769px) {
+  .section-sep {
+    display: block;
+    background: var(--color-bg);
+    height: 5rem;
+  }
+}
+
 .review-ticker {
   background-color: var(--color-green);
   border: none;
   overflow: hidden;
-  padding-block: 0.75rem;
+  padding-block: 1.25rem;
 }
 
 .review-ticker__track { overflow: hidden; }
