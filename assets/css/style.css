@@ -703,6 +703,27 @@ p { max-width: 65ch; }
 .tag-fish    { background: #E8EEF5; color: #2A4A6B; }
 .tag-dessert { background: #F5EAE0; color: var(--color-primary); }
 
+.menu__board {
+  margin-top: var(--space-lg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transform: rotate(-0.4deg);
+  box-shadow: var(--shadow-warm);
+}
+.menu__board img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.menu__board figcaption {
+  text-align: center;
+  font-family: var(--font-display-light);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  padding-top: 0.6rem;
+}
+
 .menu__disclaimer {
   margin-top: var(--space-md);
   padding: var(--space-sm) var(--space-md);
