@@ -775,16 +775,27 @@ p { max-width: 65ch; }
 .reviews {
   background-color: var(--color-green);
   color: #F7F0E3;
-  padding-block: var(--space-xl);
+  padding-block: 3rem;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .reviews { padding-block: var(--space-xl); }
 }
 
 .reviews .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-md);
-  padding-bottom: var(--space-lg);
+  gap: var(--space-sm);
+  padding-bottom: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .reviews .container {
+    gap: var(--space-md);
+    padding-bottom: var(--space-lg);
+  }
 }
 
 .reviews__rating {

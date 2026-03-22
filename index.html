@@ -763,6 +763,16 @@
       if (vid && vid.paused) vid.play().catch(function () {});
     }());
 
+    // Review-Ticker: inline !important schlägt auch prefers-reduced-motion auf iOS
+    (function () {
+      var ticker = document.querySelector('.review-ticker__inner');
+      if (ticker) {
+        ticker.style.setProperty('animation-duration',       '50s',      'important');
+        ticker.style.setProperty('animation-iteration-count','infinite', 'important');
+        ticker.style.setProperty('animation-play-state',    'running',  'important');
+      }
+    }());
+
 
     // --- Google Maps Click-to-Load (DSGVO) ---
     document.getElementById('maps-load-btn').addEventListener('click', () => {
