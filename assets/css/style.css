@@ -519,8 +519,8 @@ p { max-width: 65ch; }
   background-image: url('../img/interior-about.jpg');
   background-size: cover;
   background-position: center 40%;
-  filter: blur(5px);
-  opacity: 0.55;
+  filter: blur(2px);
+  opacity: 0.75;
   z-index: 0;
 }
 
@@ -529,7 +529,7 @@ p { max-width: 65ch; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(237, 224, 200, 0.65);
+  background: rgba(237, 224, 200, 0.50);
   z-index: 1;
 }
 
@@ -989,7 +989,7 @@ p { max-width: 65ch; }
   align-items: center;
   gap: 0.5rem;
   font-size: 0.88rem;
-  color: var(--color-text-muted);
+  color: rgba(247, 240, 227, 0.85);
   transition: color var(--transition);
 }
 .social-link:hover { color: #F7F0E3; }
