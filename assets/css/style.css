@@ -519,8 +519,8 @@ p { max-width: 65ch; }
   background-image: url('../img/interior-about.jpg');
   background-size: cover;
   background-position: center 40%;
-  filter: blur(2px);
-  opacity: 0.75;
+  filter: blur(3px);
+  opacity: 0.62;
   z-index: 0;
 }
 
@@ -529,7 +529,7 @@ p { max-width: 65ch; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(237, 224, 200, 0.50);
+  background: rgba(237, 224, 200, 0.58);
   z-index: 1;
 }
 
@@ -967,9 +967,9 @@ p { max-width: 65ch; }
 @media (min-width: 1024px) { .footer__main { grid-template-columns: 2fr 1fr 1fr; } }
 
 .footer__brand .site-logo { margin-bottom: var(--space-sm); }
-.footer__brand .site-logo__img { height: 56px; width: 56px; }
-.footer__brand .site-logo__text { color: #F7F0E3; font-size: 1.8rem; }
-.footer__brand p { font-size: 0.88rem; line-height: 1.7; max-width: 38ch; }
+.footer__brand .site-logo__img { height: 80px; width: 80px; }
+.footer__brand .site-logo__text { color: #F7F0E3; font-size: 2.4rem; }
+.footer__brand p { font-size: 0.95rem; line-height: 1.7; max-width: 38ch; color: #F7F0E3; }
 
 .footer__col h4 {
   font-family: var(--font-body);
