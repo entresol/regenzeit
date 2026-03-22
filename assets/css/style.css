@@ -508,8 +508,10 @@ p { max-width: 65ch; }
 .about {
   background-color: var(--color-surface);
   background-image:
-    linear-gradient(rgba(237, 224, 200, 0.88), rgba(237, 224, 200, 0.88)),
-    url('../img/interior-bg.jpg');
+    linear-gradient(rgba(237, 224, 200, 0.82), rgba(237, 224, 200, 0.82)),
+    url('../img/interior-2.jpg');
+  background-position: center center;
+  background-size: cover;
 }
 
 .about__grid {
