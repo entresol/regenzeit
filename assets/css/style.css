@@ -967,6 +967,8 @@ p { max-width: 65ch; }
 @media (min-width: 1024px) { .footer__main { grid-template-columns: 2fr 1fr 1fr; } }
 
 .footer__brand .site-logo { margin-bottom: var(--space-sm); }
+.footer__brand .site-logo__img { height: 56px; width: 56px; }
+.footer__brand .site-logo__text { color: #F7F0E3; font-size: 1.8rem; }
 .footer__brand p { font-size: 0.88rem; line-height: 1.7; max-width: 38ch; }
 
 .footer__col h4 {
