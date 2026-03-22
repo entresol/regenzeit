@@ -775,14 +775,24 @@
       if (vid && vid.paused) vid.play().catch(function () {});
     }());
 
-    // Review-Ticker: inline !important schlägt auch prefers-reduced-motion auf iOS
+    // Review-Ticker: requestAnimationFrame statt CSS-Animation — zuverlässig auf iOS
     (function () {
-      var ticker = document.querySelector('.review-ticker__inner');
-      if (ticker) {
-        ticker.style.setProperty('animation-duration',       '50s',      'important');
-        ticker.style.setProperty('animation-iteration-count','infinite', 'important');
-        ticker.style.setProperty('animation-play-state',    'running',  'important');
-      }
+      var inner = document.querySelector('.review-ticker__inner');
+      if (!inner) return;
+      // CSS-Animation deaktivieren, JS übernimmt
+      inner.style.setProperty('animation', 'none', 'important');
+      inner.style.transform = 'translateX(0)';
+      var pos = 0;
+      setTimeout(function () {
+        var half = inner.scrollWidth / 2;
+        if (half < 20) return;
+        (function tick() {
+          pos -= 0.7;
+          if (pos <= -half) pos = 0;
+          inner.style.transform = 'translateX(' + pos + 'px)';
+          requestAnimationFrame(tick);
+        })();
+      }, 300);
     }());
 
 
