@@ -506,12 +506,37 @@ p { max-width: 65ch; }
 
 /* === ÜBER UNS ============================================= */
 .about {
+  position: relative;
+  overflow: hidden;
   background-color: var(--color-surface);
-  background-image:
-    linear-gradient(rgba(237, 224, 200, 0.82), rgba(237, 224, 200, 0.82)),
-    url('../img/interior-2.jpg');
-  background-position: center center;
+}
+
+/* Blurred background image — only the image blurs, not the content */
+.about::before {
+  content: '';
+  position: absolute;
+  inset: -20px; /* overshoot prevents blur-edge artifacts */
+  background-image: url('../img/interior-about.jpg');
   background-size: cover;
+  background-position: center 40%;
+  filter: blur(5px);
+  opacity: 0.55;
+  z-index: 0;
+}
+
+/* Warm cream overlay on top of blurred image */
+.about::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(237, 224, 200, 0.65);
+  z-index: 1;
+}
+
+/* Content sits above both pseudo-elements */
+.about > .container {
+  position: relative;
+  z-index: 2;
 }
 
 .about__grid {
