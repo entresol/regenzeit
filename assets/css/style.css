@@ -125,7 +125,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   /* Animationen deaktivieren — hero-poster.jpg bleibt als Hintergrund sichtbar */
   .hero__steam        { display: none !important; }
-  .review-ticker__inner { animation: none !important; }
+  /* Ticker: verlangsamen statt stoppen — sind Inhalte, keine Dekoration */
+  .review-ticker__inner {
+    animation-duration: 80s !important;
+    animation-iteration-count: infinite !important;
+  }
   /* Rotationen zurücksetzen */
   .menu-card,
   .menu-card:nth-child(odd),
