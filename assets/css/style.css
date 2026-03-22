@@ -830,6 +830,7 @@ p { max-width: 65ch; }
 
 .review-ticker__inner {
   display: flex;
+  width: max-content;
   white-space: nowrap;
   animation: ticker-scroll 35s linear infinite;
   color: rgba(247, 240, 227, 0.65);
