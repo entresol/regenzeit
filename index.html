@@ -144,10 +144,12 @@
         <ul>
           <li><a href="#about">Über uns</a></li>
           <li><a href="#menu">Karte</a></li>
+          <li><a href="#terrace">Terrasse</a></li>
+          <li><a href="#celebrate">Feiern</a></li>
           <li><a href="#visit">Besuch planen</a></li>
           <li>
-            <a href="tel:+4991118099765" class="nav-phone" aria-label="Anrufen: 0911 18099765">
-              0911 18099765
+            <a href="tel:+49177364538" class="nav-phone" aria-label="Anrufen: 0177 / 3645383">
+              0177 / 3645383
             </a>
           </li>
         </ul>
@@ -422,6 +424,73 @@
     </section>
 
     <!-- ===================================================
+         TERRASSE
+         =================================================== -->
+    <section class="section terrace" id="terrace" aria-labelledby="terrace-heading">
+      <div class="container">
+        <div class="terrace__grid">
+
+          <div class="terrace__text">
+            <span class="section-label">Besonderheiten</span>
+            <h2 id="terrace-heading">Draußen sitzt man übrigens auch sehr gut.</h2>
+            <p>
+              Ein bisschen grün, ein bisschen ruhig, und oft genau der richtige Platz,
+              wenn der Abend noch nicht vorbei sein soll.
+            </p>
+          </div>
+
+          <picture class="terrace__img">
+            <source srcset="assets/img/terrace.webp" type="image/webp">
+            <img
+              src="assets/img/terrace.jpg"
+              alt="Gäste sitzen auf der Terrasse der Regenzeit unter grünem Blattwerk"
+              width="800" height="533"
+              loading="lazy"
+            >
+          </picture>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         FEIERN / CATERING
+         =================================================== -->
+    <section class="section celebrate" id="celebrate" aria-labelledby="celebrate-heading">
+      <div class="container">
+        <div class="celebrate__grid">
+
+          <picture class="celebrate__img">
+            <source srcset="assets/img/catering.webp" type="image/webp">
+            <img
+              src="assets/img/catering.jpg"
+              alt="Catering-Event in der Regenzeit: Gruppe von Gästen beim gemeinsamen Kochen"
+              width="800" height="533"
+              loading="lazy"
+            >
+          </picture>
+
+          <div class="celebrate__text">
+            <span class="section-label">Feiern &amp; Events</span>
+            <h2 id="celebrate-heading">Sonntags kann der Laden auch mal ganz euch gehören.</h2>
+            <p>
+              Für Geburtstage, Feiern, kleine Veranstaltungen oder einfach einen guten Anlass
+              mit den richtigen Leuten.
+            </p>
+            <p>
+              Und wenn wir lieber zu euch kommen sollen, geht das auch.
+              Catering machen wir natürlich ebenfalls.
+            </p>
+            <p class="celebrate__cta">
+              <a href="tel:+49177364538" class="btn btn-primary">Anfrage stellen</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
          BESUCH PLANEN
          =================================================== -->
     <section class="section visit" id="visit" aria-labelledby="visit-heading">
@@ -431,6 +500,15 @@
 
           <div class="visit__info">
             <h2 id="visit-heading">Besuch planen</h2>
+            <p>
+              <strong>Kommt hungrig.</strong><br>
+              Und am besten nicht ganz in Eile.
+            </p>
+            <p>
+              Die aktuellsten Infos zu Öffnungszeiten und allem, was gerade los ist,
+              findet ihr auf <a href="https://www.instagram.com/regenzeit.goho/" target="_blank" rel="noopener noreferrer" style="color:var(--color-neon)">Instagram</a>.
+              <br>Wenn ihr reservieren möchtet, etwas feiern wollt oder Fragen zum Catering habt, meldet euch einfach.
+            </p>
 
             <table class="hours-table" aria-label="Öffnungszeiten">
               <caption class="sr-only">Öffnungszeiten der Regenzeit</caption>
@@ -463,38 +541,14 @@
 
             <div class="contact-block">
               <h3>Kontakt &amp; Anfahrt</h3>
-              <ul class="contact-list">
-                <li>
-                  <span class="contact-label">Adresse</span>
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Regenzeit+Nürnberg+Hessestraße+4"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >Hessestraße 4, 90443 Nürnberg</a>
-                </li>
-                <li>
-                  <span class="contact-label">Tel</span>
-                  <a href="tel:+4991118099765">0911 18099765</a>
-                </li>
-                <!-- TODO: E-Mail von Benno/Aey bestätigen -->
-                <li>
-                  <span class="contact-label">E-Mail</span>
-                  <a href="mailto:info@regenzeit-gostenhof.de">info@regenzeit-gostenhof.de</a>
-                </li>
-                <li>
-                  <span class="contact-label">Insta</span>
-                  <a
-                    href="https://www.instagram.com/regenzeit.goho/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >@regenzeit.goho</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="catering-note">
-              <strong>Catering:</strong> Regenzeit kocht auch für eure Veranstaltung.
-              Anfragen gerne per Telefon oder E-Mail.
+              <address class="contact-address">
+                <strong>Regenzeit</strong><br>
+                Hessestraße 4<br>
+                90443 Nürnberg<br>
+                <br>
+                Telefon: <a href="tel:+49177364538">0177 / 3645383</a><br>
+                Instagram: <a href="https://www.instagram.com/regenzeit.goho/" target="_blank" rel="noopener noreferrer">@regenzeit.goho</a>
+              </address>
             </div>
           </div>
 
@@ -543,8 +597,8 @@
             <span class="site-logo__text">Regenzeit</span>
           </a>
           <p>
-            Thai-Streetfood aus Bangkok — serviert mit Herz
-            in Nürnberg-Gostenhof seit 2014.
+            Aus Bangkok inspiriert.<br>
+            In Gostenhof zuhause.
           </p>
           <div class="social-links" aria-label="Social Media">
             <a
@@ -589,9 +643,7 @@
         <div class="footer__col">
           <h4>Kontakt</h4>
           <ul>
-            <li><a href="tel:+4991118099765">0911 18099765</a></li>
-            <!-- TODO: E-Mail bestätigen -->
-            <li><a href="mailto:info@regenzeit-gostenhof.de">E-Mail schreiben</a></li>
+            <li><a href="tel:+49177364538">0177 / 3645383</a></li>
             <li>
               <a
                 href="https://www.instagram.com/regenzeit.goho/"
@@ -602,6 +654,12 @@
           </ul>
         </div>
 
+      </div>
+
+      <div class="footer__credits" style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1); margin-top:2rem; font-size:0.875rem; color:rgba(255,255,255,0.7)">
+        <p style="margin:0">
+          Fotos: <a href="https://www.ulanka.net" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline">www.ulanka.net</a>
+        </p>
       </div>
 
       <div class="footer__bottom">
